@@ -1,4 +1,3 @@
-
 function parseHtmlContent(htmlContent,pwdValue){if(pwdValue===undefined)pwdValue="";var dataToUrlParams=function(dataStr){if(!dataStr)return"";var result="";var content=dataStr.replace(/^\{|\}$/g,"");var pairs=content.split(",");var i;var pair;var colonIndex;var key;var value;for(i=0;i<pairs.length;i++){pair=pairs[i].replace(/^\s+|\s+$/g,"");if(pair==="")continue;colonIndex=pair.indexOf(":");if(colonIndex===-1)continue;key=pair.substring(0,colonIndex).replace(/^\s+|\s+$/g,"");value=pair.substring(colonIndex+1).replace(/^\s+|\s+$/g,"");key=key.replace(/^[\'\"`]|[\'\"`]$/g,"");value=value.replace(/^[\'\"`]|[\'\"`]$/g,"");if(result!==""){result+="&";}
 result+=key+"="+value;}
 return result;};var extractVariables=function(html){var variables={};var match;var varPattern=/var\s+(\w+)\s*=\s*['"]([^'"]*)['"]/g;match=varPattern.exec(html);while(match!=null){if(!variables[match[1]]){variables[match[1]]=match[2];}
